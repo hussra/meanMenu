@@ -45,7 +45,9 @@
             meanContract: "-", // single character you want to represent the contract for ULs
             meanRemoveAttrs: false, // true to remove classes and IDs, false to keep them
             onePage: false, // set to true for one page sites
-            removeElements: "" // set to hide page elements
+            removeElements: "", // set to hide page elements
+            onShow: function() {}, // callback when meanmenu shown
+            onHide: function() {} // callback when meanmenu hidden
         };
         var options = $.extend(defaults, options);
         
@@ -73,6 +75,8 @@
             var meanRemoveAttrs = options.meanRemoveAttrs;
             var onePage = options.onePage;
             var removeElements = options.removeElements;
+            var onShow = options.onShow;
+            var onHide = options.onHide;
                         
             //detect known mobile/tablet usage
             if ( (navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i)) || (navigator.userAgent.match(/Android/i)) || (navigator.userAgent.match(/Blackberry/i)) || (navigator.userAgent.match(/Windows Phone/i)) ) {
@@ -133,6 +137,7 @@
             	menuOn = false;
             	meanMenuExist = false;
             	jQuery(removeElements).removeClass('mean-remove');
+            	onHide();
             }
             
             //navigation reveal 
@@ -230,6 +235,8 @@
 						});
                     
                     }
+                    
+                    onShow();
                     
                 } else {
                 	meanOriginal();

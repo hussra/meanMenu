@@ -105,4 +105,12 @@ removeElements: ""
 
 - enter comma separated values in here of elements you want hidden from the container of meanmenu e.g. if you had a search box called .search, enter ".search" in here
 
+onShow: function() {}
+
+- A callback function that will be called when the meanmenu is shown - e.g. can be used to insert HTML into the menu bar
+
+onHide: function() {}
+
+- A callback function that will be called when the meanmenu is hidden
+
 
